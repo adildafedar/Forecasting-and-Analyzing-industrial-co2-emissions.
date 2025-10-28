@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CO₂ Emission Forecast Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { text-align: center; color: #2E86C1; }
+        .section { margin-bottom: 20px; }
+        .label { font-weight: bold; }
+        .value { margin-left: 10px; }
+        .comment { padding: 10px; background-color: #f0f0f0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>CO₂ Emission Forecast Report</h1>
+    <div class="section">
+        <span class="label">Company:</span>
+        <span class="value">{{ prediction.company }}</span>
+    </div>
+    <div class="section">
+        <span class="label">Year:</span>
+        <span class="value">{{ prediction.year }}</span>
+    </div>
+    <div class="section">
+        <span class="label">Predicted Emissions:</span>
+        <span class="value">{{ prediction.predicted | round(2) }} million tons</span>
+    </div>
+    <div class="section">
+        <span class="label">Emission Limit:</span>
+        <span class="value">{{ prediction.limit }} million tons</span>
+    </div>
+    <div class="section">
+        <span class="label">Result:</span>
+        <div class="comment">{{ prediction.comment }}</div>
+    </div>
+    <div class="section">
+        <span class="label">Carbon Credits Needed:</span>
+        <div class="comment">{{ prediction.credits }}</div>
+    </div>
+</body>
+</html>

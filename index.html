@@ -1,0 +1,70 @@
+<body>
+<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CO₂ Emission Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/" style="display:block;margin-bottom:20px;">← Back to Home</a>
+    <div class="container">
+        <h1>CO₂ Emission Forecast Tool For Fossil Fuel Companies</h1>
+
+        <form method="POST">
+            <label>Company Name:</label>
+            <input type="text" name="company" required>
+
+            <label>Year for Prediction:</label>
+            <input type="number" name="year" required>
+
+            <label>Government Approved CO₂ Limit (in metric tons):</label>
+            <input type="number" step="0.01" name="limit" required>
+
+            <label>Oil Production (barrels):</label>
+            <input type="number" step="any" name="oil" required>
+
+            <label>Gas Production (mcf):</label>
+            <input type="number" step="any" name="gas" required>
+
+            <label>Coal Production (tons):</label>
+            <input type="number" step="any" name="coal" required>
+
+            <label>Flared Gas (mcf):</label>
+            <input type="number" step="any" name="flared" required>
+
+            <label>Carbon Captured (tons):</label>
+            <input type="number" step="any" name="captured" required>
+
+            <button type="submit">Predict CO₂ Emissions</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+                <h2>📊 Prediction Report</h2>
+                <p><strong>Company:</strong> {{ prediction.company }}</p>
+                <p><strong>Year:</strong> {{ prediction.year }}</p>
+                <p><strong>Predicted Emissions:</strong> {{ prediction.predicted | round(2) }} metric tons</p>
+                <p><strong>Emission Limit:</strong> {{ prediction.limit }} metric tons</p>
+                <p><strong>Result:</strong> {{ prediction.comment }}</p>
+                <p><strong>Carbon Credits:</strong> {{ prediction.credits }}</p>
+
+                <form method="POST" action="/download_report">
+                    <!-- Hidden fields to pass prediction data -->
+                    <input type="hidden" name="company" value="{{ prediction.company }}">
+                    <input type="hidden" name="year" value="{{ prediction.year }}">
+                    <input type="hidden" name="predicted" value="{{ prediction.predicted }}">
+                    <input type="hidden" name="limit" value="{{ prediction.limit }}">
+                    <input type="hidden" name="comment" value="{{ prediction.comment }}">
+                    <input type="hidden" name="credits" value="{{ prediction.credits }}">
+                    <button type="submit">Download Report as PDF</button>
+                </form>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
+</div>
+</body>

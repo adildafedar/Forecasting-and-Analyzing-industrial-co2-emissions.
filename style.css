@@ -1,0 +1,157 @@
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Central Container */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #111;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Paragraphs & Lists */
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+ul li::before {
+    content: "✔";
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Form */
+form {
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="float"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+input:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+/* Buttons */
+button,
+.cta-button,
+input[type="submit"] {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+button:hover,
+.cta-button:hover,
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Result Box */
+.result-box {
+    background-color: #e9fbe5;
+    border: 1px solid #c3e6cb;
+    padding: 24px;
+    border-radius: 10px;
+    margin-top: 40px;
+    color: #155724;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.result-box strong {
+    color: #28a745;
+}
+
+/* Links */
+a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
